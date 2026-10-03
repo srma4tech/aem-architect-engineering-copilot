@@ -4,7 +4,7 @@
 
 **A reusable, production-focused engineering copilot for experienced Adobe Experience Manager and Java engineers.**
 
-> Public repository URL: **`https://github.com/srma4tech/aem-architect-engineering-copilot`** — replace this placeholder after the repository is published.
+> Public repository: [`srma4tech/aem-architect-engineering-copilot`](https://github.com/srma4tech/aem-architect-engineering-copilot).
 
 ## Table of contents
 
@@ -12,10 +12,13 @@
 - [Why it exists](#why-it-exists)
 - [Who it is for](#who-it-is-for)
 - [Core capabilities](#core-capabilities)
-- [Skills](#skills)
+- [Skill routing](#skill-routing)
 - [How it works](#how-it-works)
 - [Quick start](#quick-start)
-- [Installation](#installation)
+- [Editor & IDE installation](#editor-ide-installation)
+- [First-time usage](#first-time-usage)
+- [Recommended workflow](#recommended-workflow)
+- [Troubleshooting installation](#troubleshooting-installation)
 - [Example prompts](#example-prompts)
 - [Engineering principles](#engineering-principles)
 - [AEM 6.5 and AEM as a Cloud Service](#aem-65-and-aem-as-a-cloud-service)
@@ -24,7 +27,7 @@
 - [Development and validation](#development-and-validation)
 - [Contributing](#contributing)
 - [Versioning and changelog](#versioning-and-changelog)
-- [Project status and limitations](#project-status-and-limitations)
+- [Project status](#project-status)
 - [License](#license)
 
 ## What this project is
@@ -58,9 +61,9 @@ The material assumes practical engineering experience. It does not aim to replac
 - Reason about Dispatcher/CDN caching, assets, MSM, headless delivery, and asynchronous processing
 - Prepare for Technical Lead and Solution Architect discussions
 
-## Skills
+## Skill Routing
 
-Each skill has its own `SKILL.md` under `skills/`. The main skill provides shared principles and intent routing; the specialist skills cover focused workflows.
+The main copilot skill routes requests to focused skills based on intent. You normally do not need to select a skill manually. Each skill has its own `SKILL.md` under `skills/`.
 
 | Skill | Capability |
 | --- | --- |
@@ -93,26 +96,96 @@ The diagram describes the instruction flow, not a guarantee that every client lo
 
 ## Quick start
 
-1. Install the repository root in an Agent Plugin-compatible client.
+1. Install the plugin in your editor or environment using the instructions below.
 2. State the AEM version and service tier when known.
 3. Include the relevant code, configuration, logs, metrics, constraints, or desired outcome.
 4. Ask for the work you need, such as a code review, incident investigation, or migration assessment.
 
 For example: “Review an AEM 6.5 Sling service for resolver lifecycle, Oak query cost, permissions, and AEM as a Cloud Service compatibility.”
 
-## Installation
+## Editor & IDE Installation
 
-This package targets Agent Plugins v1.0.0. Install it with a client that supports the [Agent Plugins specification](https://agent-plugins.org/specification) and Agent Skills. Client-specific installation steps vary; use the client’s documentation for local plugin directories or Git-based installation.
+The source repository is [`srma4tech/aem-architect-engineering-copilot`](https://github.com/srma4tech/aem-architect-engineering-copilot). Install the repository root—the directory containing `plugin.json`—as the plugin source.
 
-The install location is the repository root—the directory containing `plugin.json`—not an individual skill directory.
+### IntelliJ IDEA + GitHub Copilot
 
-After this repository is hosted, clone it with the published URL:
+This workflow was verified with GitHub Copilot 1.18.0 on IntelliJ IDEA.
 
-```sh
-git clone <PUBLIC_GITHUB_REPOSITORY_URL>
+1. Open IntelliJ IDEA.
+2. Open **Agent Customizations**.
+3. Select **Plugins**.
+4. Click **Install Plugin from Source**.
+5. Enter the repository source:
+
+   ```text
+   srma4tech/aem-architect-engineering-copilot
+   ```
+
+6. Click **View**.
+7. Click **Install**.
+8. Verify the plugin appears under **Plugins** and is enabled.
+9. Open **Agent 2** and use the plugin for AEM tasks.
+
+Install it from source in IntelliJ. The repository's `marketplace.json` is not the IntelliJ installation path.
+
+### VS Code + GitHub Copilot
+
+Use VS Code's Agent Plugin functionality to install an Agent Plugin from a source repository or Git repository. Enter:
+
+```text
+srma4tech/aem-architect-engineering-copilot
 ```
 
-Replace the placeholder with the actual repository URL. No public URL is currently asserted here.
+The exact command or action wording may vary slightly by VS Code version. Follow the VS Code Agent Plugin installation flow and select the repository root as the source.
+
+### GitHub Copilot CLI
+
+This repository follows the Agent Plugins structure and includes `.github/plugin/marketplace.json` for marketplace workflows supported by GitHub Copilot CLI. Add the repository as a marketplace using the CLI's plugin marketplace commands, then browse and install the plugin there. This CLI marketplace workflow is separate from IntelliJ's **Install Plugin from Source** flow.
+
+### Installation comparison
+
+| Environment | Installation | Status |
+| --- | --- | --- |
+| IntelliJ IDEA + GitHub Copilot | Install Plugin from Source | Verified |
+| VS Code + GitHub Copilot | Install Agent Plugin from source/repository | Supported |
+| GitHub Copilot CLI | Agent Plugin / marketplace workflow | Supported |
+| IntelliJ Marketplace discovery | `marketplace.json` | Not the installation path |
+
+## First-Time Usage
+
+### 1. AEM Code Review
+
+> Review the selected AEM code for correctness, security, performance, and AEM 6.5/AEM as a Cloud Service compatibility. List actionable findings with evidence and impact.
+
+### 2. AEM Troubleshooting
+
+> Investigate this AEM symptom. Structure the response as Symptom → Evidence → Root Cause → Verification → Fix → Prevention. Separate observed facts from hypotheses.
+
+### 3. AEM Architecture
+
+> Inspect this repository and assess its AEM architecture for the stated requirements. Separate findings into Confirmed, Highly likely, and Unknown, and explain key trade-offs.
+
+## Recommended Workflow
+
+1. Install the plugin in the editor or environment you use.
+2. Open an AEM project and start Agent 2 or the available coding agent.
+3. Ask for analysis before requesting modifications.
+4. Let the copilot route the request to the relevant AEM skill.
+5. Review proposed changes and verify assumptions.
+6. Apply changes only after review.
+7. Run the project's tests and builds.
+8. Review the final diff.
+
+> The plugin provides engineering guidance; always review generated changes and validate them against the project's AEM version, deployment model, security requirements, tests, and operational constraints.
+
+## Troubleshooting Installation
+
+- Confirm GitHub Copilot is enabled and the repository is accessible.
+- Use the repository source `srma4tech/aem-architect-engineering-copilot`.
+- In IntelliJ, choose **Install Plugin from Source**, not Marketplace.
+- Restart or reload the IDE if the plugin does not appear immediately.
+- Verify the plugin is enabled under **Agent Customizations → Plugins**.
+- If a capability is unavailable, check the editor and GitHub Copilot versions; Agent Plugin capabilities can vary by client and version.
 
 ## Example prompts
 
@@ -186,6 +259,9 @@ These are areas of advisory guidance, not bundled AEM components or integrations
 ```text
 .
 ├── plugin.json
+├── .github/
+│   ├── plugin/marketplace.json
+│   └── workflows/validate.yml
 ├── skills/
 │   ├── aem-architect-engineering-copilot/SKILL.md
 │   ├── aem-architecture/SKILL.md
@@ -199,7 +275,6 @@ These are areas of advisory guidance, not bundled AEM components or integrations
 │   └── aem-troubleshooting/SKILL.md
 ├── scripts/validate_plugin.py
 ├── requirements-dev.txt
-├── .github/workflows/validate.yml
 ├── CONTRIBUTING.md
 ├── CHANGELOG.md
 └── LICENSE
@@ -230,13 +305,20 @@ Before proposing a change, run the validator and review the complete diff. See [
 
 The plugin manifest version is **1.1.1**. User-visible changes are recorded in [CHANGELOG.md](CHANGELOG.md). The package follows semantic-versioning guidance for plugin versions; Agent Plugins format compatibility is declared separately by the `plugin.json` `$schema` value.
 
-## Project status and limitations
+## Project Status
 
-- Current package version: **1.1.1**.
+- Version: **1.1.1**.
+- Status: **Stable / Frozen**.
+- Skills: **10**.
+- GitHub Actions validation: **Passing**.
+- IntelliJ source installation: **Verified** with GitHub Copilot 1.18.0 on IntelliJ IDEA.
+- Repository-aware Agent 2 execution: **Verified**.
 - Distribution format: Agent Plugin with ten instruction-based skills.
 - Runtime: no bundled service, MCP server, Adobe credentials, or AEM environment connection.
-- Repository URL: **[aem-architect-engineering-copilot](https://github.com/srma4tech/aem-architect-engineering-copilot.git)** placeholder; replace it after publication.
+- Repository: [github.com/srma4tech/aem-architect-engineering-copilot](https://github.com/srma4tech/aem-architect-engineering-copilot).
 - Guidance depends on the evidence supplied and should be checked against the target AEM release, architecture, and operational policies.
+
+> This release is intentionally frozen. Future changes should be limited to documentation, bug fixes, security fixes, compatibility updates, or deliberate versioned enhancements.
 
 This project is not a substitute for Adobe product documentation, security review, performance testing, or environment-specific operational procedures.
 
