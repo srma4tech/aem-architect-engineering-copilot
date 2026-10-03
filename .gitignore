@@ -1,0 +1,28 @@
+# Python local tooling
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+env/
+
+# Build and distribution
+build/
+dist/
+*.egg-info/
+
+# Environment files and secrets
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
