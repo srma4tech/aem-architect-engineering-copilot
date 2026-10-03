@@ -235,7 +235,7 @@ The plugin manifest version is **1.1.1**. User-visible changes are recorded in [
 - Current package version: **1.1.1**.
 - Distribution format: Agent Plugin with ten instruction-based skills.
 - Runtime: no bundled service, MCP server, Adobe credentials, or AEM environment connection.
-- Repository URL: **`<PUBLIC_GITHUB_REPOSITORY_URL>`** placeholder; replace it after publication.
+- Repository URL: **[aem-architect-engineering-copilot](https://github.com/srma4tech/aem-architect-engineering-copilot.git)** placeholder; replace it after publication.
 - Guidance depends on the evidence supplied and should be checked against the target AEM release, architecture, and operational policies.
 
 This project is not a substitute for Adobe product documentation, security review, performance testing, or environment-specific operational procedures.
