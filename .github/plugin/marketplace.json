@@ -1,0 +1,14 @@
+{
+  "name": "srma4tech-aem-plugins",
+  "owner": {
+    "name": "Sachin Sharma"
+  },
+  "plugins": [
+    {
+      "name": "aem-architect-engineering-copilot",
+      "description": "Production-focused engineering guidance for Adobe Experience Manager 6.5 and AEM as a Cloud Service.",
+      "version": "1.1.1",
+      "source": "."
+    }
+  ]
+}
